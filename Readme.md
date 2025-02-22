@@ -107,25 +107,30 @@ bash
 Copiar
 Editar
 backend/
+│
 ├── src/
-│   ├── config/                # Configurações, incluindo o serviceAccountKey.json do Firebase
-│   ├── controller/            # Lógica dos controladores para as rotas
-│   ├── routes/                # Definição dos endpoints da API
-│   ├── services/              # Serviços para manipulação de dados, como extração de PDF e CPF
+│   ├── config/                # Configurações (ex.: serviceAccountKey.json para o Firebase)
+│   ├── controller/            # Lógica para as rotas da API
+│   ├── routes/                # Endpoints da API (ex.: upload PDF, listar/excluir CPFs)
+│   ├── services/              # Manipulação de dados (ex.: extração de CPFs dos PDFs)
 │   └── (outros arquivos de suporte)
-└── index.js                    # Arquivo principal do servidor Express
+│
+└── index.js                   # Arquivo principal que inicializa o servidor Express
 
 frontend/
+│
 ├── src/
 │   ├── assets/                # Arquivos estáticos (imagens, fontes, etc.)
-│   ├── components/            # Componentes Vue
+│   ├── components/            # Componentes Vue.js reutilizáveis
 │   ├── views/                 # Páginas da aplicação
-│   │   ├── HomePage.vue       # Página de upload e remoção
-│   │   └── CpfList.vue        # Página de visualização/edição/exclusão de CPFs
-│   ├── router/                # Configuração das rotas (Vue Router)
+│   │   ├── HomePage.vue       # Página para upload de PDF e visualização de CPFs
+│   │   └── CpfList.vue        # Página para listagem, edição e exclusão de CPFs
+│   ├── router/                # Configuração do Vue Router para navegação entre páginas
 │   └── App.vue                # Componente principal da aplicação
+│
 ├── package.json               # Dependências do front-end
-└── README.md                  # (Opcional) README do front-end
+└── README.md                  # Documentação do front-end
+
 Uso
 Back-End
 Inicie o servidor:
