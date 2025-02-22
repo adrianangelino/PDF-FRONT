@@ -1,0 +1,147 @@
+// Cores principais
+$primary-color: #6f42c1;  // Roxo intenso
+$secondary-color: #4e73df; // Azul vibrante
+$accent-color: #ff63c3; // Rosa suave
+$background-gradient: linear-gradient(135deg, #4e73df, #6f42c1); // Degradê de azul para roxo
+
+// Fontes e tipografia
+$font-family: 'Poppins', sans-serif; // Fonte arredondada
+$border-radius: 25px; // Bordas arredondadas
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family;
+  background: $background-gradient;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  overflow: hidden; // Impede que as ondas saiam da tela
+  background-attachment: fixed;
+}
+
+// Adicionando as ondas no fundo
+.wave-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; // Coloca as ondas atrás do conteúdo principal
+  overflow: hidden;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  width: 200%;
+  height: 150px;
+  background-color: $secondary-color;
+  border-radius: 50%;
+  animation: waveAnimation 8s ease-in-out infinite;
+}
+
+.wave:nth-child(2) {
+  background-color: $primary-color;
+  animation: waveAnimation 10s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+@keyframes waveAnimation {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-30px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.home {
+  max-width: 600px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: $border-radius;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+
+  h1 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: $primary-color;
+    margin-bottom: 25px;
+  }
+
+  input[type="file"] {
+    display: block;
+    width: 100%;
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: $border-radius;
+    background-color: $primary-color;
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $secondary-color;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .uploaded {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 25px;
+    background-color: #e9f2fd;
+    border-radius: $border-radius;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+
+    li {
+      background-color: #f0f4fc;
+      border-radius: 6px;
+      padding: 15px;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      color: $secondary-color;
+      transition: background-color 0.3s ease, color 0.3s ease;
+
+      &:hover {
+        background-color: $primary-color;
+        color: #fff;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+

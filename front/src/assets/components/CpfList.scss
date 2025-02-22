@@ -1,0 +1,130 @@
+/* 
+  Container principal:
+  - Ocupa a tela toda (height: 100vh)
+  - Fundo neutro (#f7f7f7)
+  - Centraliza o conteúdo (display: flex, justify-content, align-items)
+*/
+.cpf-list-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f7f7f7;
+  padding: 20px;
+}
+
+/* 
+  Caixa branca que contém a lista de CPFs:
+  - Largura máxima de 800px
+  - Altura máxima (max-height) para rolagem
+  - Fundo branco, bordas arredondadas, sombra sutil
+  - scroll vertical se ultrapassar a altura
+*/
+.cpf-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 800px;
+  max-height: 70vh;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+/* 
+  Cada item (CPF) da lista:
+  - Espaçamento interno
+  - Fundo levemente cinza (#fafafa)
+  - Borda arredondada e sombra suave
+  - Animação de hover
+*/
+.cpf-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fafafa;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cpf-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Texto do CPF */
+.cpf-text {
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+  margin-right: 20px;
+  flex-grow: 1;
+}
+
+/* Container dos botões de ação */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Botões Editar/Excluir */
+.edit-btn,
+.delete-btn {
+  padding: 8px 16px;
+  font-size: 13px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Botão Editar */
+.edit-btn {
+  background-color: #4caf50;
+  color: #fff;
+}
+.edit-btn:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+/* Botão Excluir */
+.delete-btn {
+  background-color: #f44336;
+  color: #fff;
+}
+.delete-btn:hover {
+  background-color: #e53935;
+  transform: scale(1.05);
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .cpf-list {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .cpf-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .cpf-text {
+    margin-right: 0;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
